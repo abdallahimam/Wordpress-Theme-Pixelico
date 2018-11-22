@@ -28,7 +28,7 @@ if (isset($_GET['post']) !== null) {
             <div class="text-center border-0 rounded-0 py-5">
                 <h3 id="downloadHeading"><?php echo lang('DOWNLOAD_WAITING_TEXT') ?></h3>
                 <p class="text-center lead text-secondary mt-3" id="downloadCounterDown"><?php echo lang('DOWNLOAD_WAITING_COUNTER_TEXT') ?></p>
-                <a download="<?php echo $id; ?>" fileurl="<?php echo get_template_directory_uri() . '/downloads.php';?>" id="downloadLink" href="<?php echo $downloadLink ?>" target="_blank" class="btn btn-success btn-lg text-light mt-3" rel="noopener noreferrer"><?php echo lang('DOWNLOAD_BUTTON_TEXT') ?></a>
+                <a download="<?php echo $id; ?>" id="downloadLink" href="<?php echo $downloadLink ?>" target="_blank" class="btn btn-success btn-lg text-light mt-3" rel="noopener noreferrer"><?php echo lang('DOWNLOAD_BUTTON_TEXT') ?></a>
             </div>
             <hr>
             <div class="latest-downloads text-right">
@@ -47,6 +47,7 @@ if (isset($_GET['post']) !== null) {
                                         <span class="the-date"><?php the_time( 'F jS, Y' ); ?></span>
                                     </a>
                                     <div class="item-info">
+                                        
                                         <!--
                                         <a href="javascript:void(0);" class="btn btn-sm like">
                                             <img src="<?php echo get_template_directory_uri() . '/images/icon_like.png' ?>">

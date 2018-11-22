@@ -8,6 +8,7 @@
  *
  * @package pixelico
  */
+global $optionsfile;
 
 ?>
 <!doctype html>
@@ -28,13 +29,13 @@
 			<div class="container-fluid">
 				<div class="row justify-content-center">
 					<div class="col-md-4 col-left">
-						<p class="top-head-name">موقعي للتصميمات والتحميل</p>
+						<p class="top-head-name"></p>
 					</div>
 					<div class="col-md-8 col-sm-12 col-right">
 						<ul class="social-top social">
-							<li class="social-btn"><a href="http://facebook.com/" class="social-icon facebook" target="_self"><i class="fa fa-facebook"></i></a></li>
-							<li class="social-btn"><a href="http://plus.google.com/" class="social-icon" target="_self"><i class="fa fa-google-plus"></i></a></li>
-							<li class="social-btn"><a href="http://twitter.com/" class="social-icon" target="_self"><i class="fa fa-twitter"></i></a></li>
+							<li class="social-btn"><a href="<?php echo of_get_option('pixelico_facebook_link'); ?>" 	class="social-icon facebook" 	target="_self"><i class="fa fa-facebook"></i></a></li>
+							<li class="social-btn"><a href="<?php echo of_get_option('pixelico_google_plus_link'); ?>" 	class="social-icon google" 		target="_self"><i class="fa fa-google-plus"></i></a></li>
+							<li class="social-btn"><a href="<?php echo of_get_option('pixelico_twitter_link'); ?>" 		class="social-icon twitter" 	target="_self"><i class="fa fa-twitter"></i></a></li>
 						</ul>
 						<div class="top-bar">
 							<ul>
@@ -79,77 +80,13 @@
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<a class="navbar-brand py-0 m-0 col" href="<?php echo get_site_url(); ?>"><img src="<?php echo get_template_directory_uri() . '/images/logo.png'; ?>" alt="<?php echo bloginfo('name') . ' Logo.' ?>" srcset=""></a>
+				<a class="navbar-brand py-0 m-0 col" href="<?php echo get_site_url(); ?>"><img src="<?php echo of_get_option('example_uploader'); ?>" alt="<?php echo bloginfo('name') . ' Logo.' ?>" srcset=""></a>
 				<div class="navbar-collapse collapse w-100 order-3 dual-collapse2 col" id="navbarTogglerDemo03">
-					<ul class="navbar-nav mr-auto parent">
-						<li class="nav-item">
-							<a href="<?php echo get_site_url(); ?>" target="_self" class="nav-link">
-								<span><?php echo lang('HOME'); ?></span>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="<?php echo get_site_url(); ?>/category/mockups" target="_self" style="" class="nav-link">
-								<span><?php echo lang('MOCKUPS'); ?></span>
-							</a>
-						</li>
-						<li class="nav-item dropdown">
-							<a href="<?php echo get_site_url(); ?>/category/psds" id="navbarDropdownMenuLinkPSDs" class="nav-link dropdown-toggle" >
-								<span><?php echo lang('PSDS'); ?></span>
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkPSDs">
-								<li class="dropdown-item">
-									<a href="<?php echo get_site_url(); ?>/category/ui-kits">
-										<span><?php echo lang('UI_KITS'); ?></span>
-									</a>
-								</li>
-								<li class="dropdown-item">
-									<a href="<?php echo get_site_url(); ?>/category/websites">
-										<span><?php echo lang('WEBSITES'); ?></span>
-									</a>
-								</li>
-							</ul>
-						</li>
-						<li class="nav-item">
-							<a href="<?php echo get_site_url(); ?>/category/icons" target="_self" style="" class="nav-link">
-								<span><?php echo lang('ICONS'); ?></span>
-							</a>
-						</li>
-						<li class="nav-item dropdown">
-							<a href="<?php echo get_site_url(); ?>/category/vectors" id="navbarDropdownMenuLinkVectors" class="nav-link dropdown-toggle">
-								<span><?php echo lang('VECTORS'); ?></span>
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkVectors">
-								<li class="dropdown-item">
-									<a href="<?php echo get_site_url(); ?>/category/illustrator">
-									<span><?php echo lang('ILLUSTRATOR'); ?></span>
-									</a>
-								</li>
-								<li class="dropdown-item">
-									<a href="<?php echo get_site_url(); ?>/category/sketch">
-									<span><?php echo lang('SKETCH'); ?></span>
-									</a>
-								</li>
-							</ul>
-						</li>
-						<li class="nav-item">
-							<a href="<?php echo get_site_url(); ?>/category/other" target="_self" style="" class="nav-link">
-								<span><?php echo lang('OTHERS'); ?></span>
-							</a>
-						</li>
-						<li class="nav-item text-right search-in-lg d-sm-none d-md-inline-block">
-							<a href="#" class="nav-link search" data-toggle="modal" data-target="#modalSubscriptionForm"><i class="fa fa-search"></i></a>
-						</li>
-					</ul>
+					<?php include_navbar_template_menu(); ?>
 				</div>
 				<div class="nav-item search-in-sm">
 					<a href="#" class="nav-link search" data-toggle="modal" data-target="#modalSubscriptionForm"><i class="fa fa-search"></i></a>
 				</div>
-				<!--
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <?php include_navbar_template_menu(); ?>
-                </div>-->
 			</div>
 		</nav>
 	</header><!-- #masthead -->

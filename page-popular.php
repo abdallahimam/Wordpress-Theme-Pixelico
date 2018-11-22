@@ -6,7 +6,7 @@
 
 	<div id="primary" class="home">
 		<div class="container-fluid">
-			<h1 class="text-center pb-5 site-header"><i class="fa fa-star"></i> Most Popular.</h1>
+			<h1 class="text-center pb-5 site-header"><i class="fa fa-star"></i> <?php echo lang('POPULAR');?></h1>
 			<div class="row">
 				<?php if ( $popularpost->have_posts() ) : while ( $popularpost->have_posts() ) : $popularpost->the_post(); ?>
 					<div class="col-sm-6 col-md-6 col-lg-4">

@@ -22,9 +22,9 @@
 					</div>
 					<div class="col-right">
 						<ul class="social-top social">
-							<li class="social-btn"><a href="http://facebook.com/" class="social-icon facebook" target="_self"><i class="fa fa-facebook"></i></a></li>
-							<li class="social-btn"><a href="http://plus.google.com/+" class="social-icon" target="_self"><i class="fa fa-google-plus"></i></a></li>
-							<li class="social-btn"><a href="http://twitter.com/" class="social-icon" target="_self"><i class="fa fa-twitter"></i></a></li>
+							<li class="social-btn"><a href="<?php echo of_get_option('pixelico_facebook_link'); ?>" 	class="social-icon facebook" 	target="_self"><i class="fa fa-facebook"></i></a></li>
+							<li class="social-btn"><a href="<?php echo of_get_option('pixelico_google_plus_link'); ?>" 	class="social-icon google" 		target="_self"><i class="fa fa-google-plus"></i></a></li>
+							<li class="social-btn"><a href="<?php echo of_get_option('pixelico_twitter_link'); ?>" 		class="social-icon twitter" 	target="_self"><i class="fa fa-twitter"></i></a></li>
 						</ul>
 						<div class="top-bar pr-3">
 							<ul>

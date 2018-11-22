@@ -9,7 +9,7 @@
 
 //////////////////////////////////////
 ////         Load languages 
-require(get_template_directory() . '/languages/arabic.php');
+require_once(get_template_directory() . '/languages/arabic.php');
 
 require_once('class-wp-bootstrap-navwalker.php');
 
@@ -176,8 +176,8 @@ function include_footer_template_menu() {
 function add_styles() {
     wp_enqueue_style('bootstarp-css', get_template_directory_uri() . '/css/bootstrap.min.css');
     wp_enqueue_style('font-awesome-css', get_template_directory_uri() . '/css/font-awesome.min.css');
-    // wp_enqueue_style('owl-carousel-css', get_template_directory_uri() . '/css/owl.carousel.min.css');
-    // wp_enqueue_style('owl-carousel-theme-default-css', get_template_directory_uri() . '/css/owl.theme.default.min.css');
+    wp_enqueue_style('owl-carousel-css', get_template_directory_uri() . '/css/owl.carousel.min.css');
+    wp_enqueue_style('owl-carousel-theme-default-css', get_template_directory_uri() . '/css/owl.theme.default.min.css');
     // wp_enqueue_style('main-css', get_template_directory_uri() . '/css/style.css');
     wp_enqueue_style('main-css', get_template_directory_uri() . '/css/style-rtl.css');
 }
@@ -197,7 +197,7 @@ function add_scripts() {
     /// enqueue the scripts that you need.
     wp_enqueue_script('jquery');
     wp_enqueue_script('bootstarp-js', get_template_directory_uri() . '/js/bootstrap.min.js', array(), false, true);
-    // wp_enqueue_script('owl-carousel-js', get_template_directory_uri() . '/js/owl.carousel.min.js', array(), false, true);
+    wp_enqueue_script('owl-carousel-js', get_template_directory_uri() . '/js/owl.carousel.min.js', array(), false, true);
     wp_enqueue_script('main-js', get_template_directory_uri() . '/js/style.js', array(), false, true);
 
     /// add in case of IE less than 9.
@@ -354,9 +354,53 @@ function wpb_get_post_likes($postID){
     return $count;
 }
 
+/**
+* Gets all images attached to a post
+* @return string
+*/
+function pixelico_get_images($post_id = null) {
+	/*
+	global $post;
+	$id = intval( $post->ID );
+	*/
+	$id = intval( $post_id );
+	$size = 'large';
+	$attachments = get_children(
+		array (
+			'post_parent' => $id,
+			'post_status' => 'inherit',
+			'post_type' => 'attachment',
+			'post_mime_type' => 'image',
+			'order' => 'ASC',
+			'orderby' => 'menu_order'
+		)
+	);
+	if (empty( $attachments ))
+		return '';
+	$output = "";
+	/**
+	 * Loop through each attachment
+	 */
+	$output .= '<div id="pixelico-owl-carousel" class="owl-carousel owl-theme">';
+	foreach ( $attachments as $id  => $attachment ) :
+		$title = esc_html( $attachment->post_title, 1 );
+		$img = wp_get_attachment_image_src( $id, $size );
+
+		$output .= 	'<div class="item">';
+		$output .= 		'<a class="selector thumb" href="' . esc_url( wp_get_attachment_url( $id ) ) . '" title="' . esc_attr( $title ) . '">';
+		$output .= 			'<img class="img-responsive img-thumbnail" src="' . esc_url( $img[0] ) . '" alt="' . esc_attr( $title ) . '" title="' . esc_attr( $title ) . '">';
+		$output .= 		'</a>';
+		$output .= 	'</div>';
+	endforeach;
+	
+	$output .= '</div>';
+	return $output;
+}
+
 /*************************************************************/
 /******************* Create users_ip Table *******************/
 /*************************************************************/
+/*
 function my_plugin_create_db_2() {
 
 	global $wpdb;
@@ -389,3 +433,56 @@ function my_plugin_create_db_2() {
 }
 
 my_plugin_create_db_2();
+*/
+
+/****************************************************************/
+/**
+ * Add Theme Options.
+ */
+/****************************************************************/
+//require_once dirname(__FILE__) . '/inc/templates/theme-panal/functions-admin.php';
+/*
+ * Loads the Options Panel
+ *
+ * If you're loading from a child theme use stylesheet_directory
+ * instead of template_directory
+ */
+
+define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/options-framework/' );
+require_once dirname( __FILE__ ) . '/options-framework/options-framework.php';
+
+// Loads options.php from child or parent theme
+$optionsfile = locate_template( 'options.php' );
+load_template( $optionsfile );
+
+function get_the_option($id) {
+	return $optionsfile[$id];
+}
+
+/*
+ * This is an example of how to add custom scripts to the options panel.
+ * This one shows/hides the an option when a checkbox is clicked.
+ *
+ * You can delete it if you not using that option
+ */
+/*
+add_action( 'optionsframework_custom_scripts', 'optionsframework_custom_scripts' );
+
+function optionsframework_custom_scripts() { ?>
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+
+	jQuery('#example_showhidden').click(function() {
+  		jQuery('#section-example_text_hidden').fadeToggle(400);
+	});
+
+	if (jQuery('#example_showhidden:checked').val() !== undefined) {
+		jQuery('#section-example_text_hidden').show();
+	}
+
+});
+</script>
+<?php } ?>
+*/
+?>

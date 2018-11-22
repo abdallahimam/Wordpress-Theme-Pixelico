@@ -135,3 +135,28 @@ $(document).ready(function($){
     });
     //end loadmore
 });
+
+
+$(document).ready(function() {
+ 
+    var owl = $("#pixelico-owl-carousel");
+ 
+    owl.owlCarousel({
+
+        rtl:true,
+        loop:true,
+        margin:10,
+        nav:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:1
+            }
+        }
+    });
+});

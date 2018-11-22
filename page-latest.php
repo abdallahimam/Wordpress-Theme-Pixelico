@@ -20,7 +20,7 @@ $recent_posts = wp_get_recent_posts( $args, ARRAY_A );
 
 	<div id="primary" class="home page-latest-posts">
 		<div class="container-fluid">
-			<h1 class="text-center pb-2 site-header"><?php echo bloginfo('name') ?></h1>
+			<h1 class="text-center pb-2 site-header"><?php echo lang('LATEST');?> </h1>
 			<p class="text-center text-secondary h5 mb-5 tagline"><?php echo bloginfo('description') ?></p>
 			<div class="row">
 				<?php if ( $recent_posts ) : foreach ($recent_posts as $post) : ?>

@@ -19,9 +19,7 @@ get_header();
 							<?php edit_post_link(lang('EDIT') . ' <i class="fa fa-pencil"></i>'); ?>
 							<?php edit_post_link(lang('EDIT') . ' <i class="fa fa-pencil"></i>'); ?>
 							<h4 class="post-title">
-								<a href="<?php the_permalink(); ?>">
-									<?php the_title(); ?>
-								</a>
+								<?php the_title(); ?>
 							</h4>
 							<span class="post-author ml-2"><i class="fa fa-user fa-fw fa-lg"></i><?php the_author_posts_link(); ?>,</span>
 							<span class="post-date ml-2"><i class="fa fa-calendar fa-fw fa-lg"></i><?php the_time('F j, Y');?>,</span>
@@ -30,8 +28,21 @@ get_header();
 								<?php comments_popup_link(lang('ZERO_COMMENT'), lang('ONE_COMMENT'), lang('MANY_COMMENTS'), 'comments-url', lang('DISABLED_COMMENTS')); ?>.
 							</span>
 							<div class="clearfix"></div>
+							<?php /* ?>
 							<div class="post-image">
 								<?php the_post_thumbnail('', ['class' => 'img-responsive img-thumbnail']); ?>
+							</div>
+							<?php */ ?>
+							<div class="text-right post-images-slider">
+								<?php echo pixelico_get_images(get_the_ID()); ?>
+								<?php /* ?>
+								<div class="customNavigation">
+									<a class="btn prev">Previous</a>
+									<a class="btn next">Next</a>
+									<a class="btn play">Autoplay</a>
+									<a class="btn stop">Stop</a>
+								</div>
+								<?php */ ?>
 							</div>
 							<div class="post-share">
 								<div class="row">
@@ -186,21 +197,6 @@ get_header();
 						</div>
 					</div>
 					<div class="col-sm-12 col-md-4">
-						<div class="posts-paginator my-4">
-							<?php
-								if (get_previous_post_link()) {
-									echo '<div class="Prev float-right">';
-										previous_post_link('%link', '<i class="fa fa-chevron-right fa-fl m-1"></i> ' . lang('PREV'));
-									echo '</div>';
-								}
-								if (get_next_post_link()) {
-									echo '<div class="Next float-left">';
-										next_post_link('%link', lang('NEXT') . ' <i class="fa fa-chevron-left fa-fl m-1"></i>');
-									echo '</div>';
-								}
-								?>
-						</div>
-						<div class="clearfix"></div>
 						<?php get_sidebar(); ?>
 					</div>
 				<?php endwhile; // End of the loop. ?>

@@ -32,7 +32,7 @@
         AND p.post_status = 'publish'
         GROUP BY t.term_id";
         */
-
+        /*
         $cat_ID = get_queried_object()->cat_ID;
 
         // this query to get the number of comments in the current category.
@@ -59,6 +59,7 @@
             'orderby'           => 'comments_count'
         );
         $hot_posts = new WP_query($hot_posts_args);
+        */
 
     } else {
         $comments_count = get_comments(array('count' => true));
@@ -68,11 +69,13 @@
         $recent_posts = wp_get_recent_posts( $args );
         
         // get hot posts.
+        /*
         $hot_posts_args = array(
             'posts_per_page'    => 5,
             'orderby'           => 'comments_count'
         );
         $hot_posts = new WP_query($hot_posts_args);
+        */
         // Popular posts.
 	    $popularpost = new WP_Query( array( 'posts_per_page' => 5, 'meta_key' => 'wpb_post_views_count', 'orderby' => 'meta_value_num', 'order' => 'DESC'  ) );
 
@@ -88,9 +91,9 @@
 					<?php foreach($recent_posts as $post) { ?>
 						<li class="row popular-post mb-3">
                             <div class="col-6 p-0 text-right">
-                                <a target="_blank" href="<?php echo get_permalink($post['ID']) ?>" class="d-block w-100 h-100 py-4 px-2">
+                                <a target="_self" href="<?php echo get_permalink($post['ID']) ?>" class="d-block w-100 h-100 py-4 px-2">
                                     <h6 class="mb-3"><?php echo $post['post_title']; ?></h6>
-                                    <p><?php echo lang('ADDED_ON'); ?> <span><?php the_time('F j, Y', $post['ID']); ?></span></p>
+                                    <p><?php echo lang('ADDED_ON'); ?> <span><?php echo date('F j, Y', strtotime($post['post_date'])); ?></span></p>
                                 </a>
                             </div>
 							<div class="col-6 p-0">
