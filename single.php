@@ -74,6 +74,7 @@ get_header();
 											<i class="fa fa-cloud-download"></i> <?php echo lang('DOWNLOAD'); ?> (<span><?php echo wpb_get_post_downloads(get_the_ID());?></span>)
 										</a>
 									</div>
+									<?php /*
 									<!--
 									<div class="col-sm-4 col-md-3 mb-3">
 										<a href="javascript:void(0)" id="buttonLike" class="btn btn-block border border-danger rounded-0 py-4 btn-like">
@@ -81,6 +82,7 @@ get_header();
 										</a>
 									</div>
 									-->
+									*/ ?>
 								</div>
 							</div>
 							<p class="text-right post-categories"><i class="fa fa-tags fa-fw fa-lg"></i><?php the_category(', '); ?></p>

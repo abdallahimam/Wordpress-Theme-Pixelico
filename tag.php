@@ -35,6 +35,7 @@
 									<span class="the-date"><?php the_time( 'F jS, Y' ); ?></span>
 								</a>
 								<div class="item-info">
+									<?php /*
 									<!--
 									<a href="javascript:void(0);" class="btn btn-sm like">
 										<img src="<?php echo get_template_directory_uri() . '/images/icon_like.png' ?>">
@@ -44,6 +45,7 @@
 										<img src="<?php echo get_template_directory_uri() . '/images/icon_download.png' ?>"> 189
 									</a>
 									-->
+									*/ ?>
 									<a href="<?php echo get_site_url(); ?>/downloads/?post=<?php echo /*basename(get_permalink());*/ get_the_ID(); ?>" class="btn btn-sm download side-modal">
 										<img src="<?php echo get_template_directory_uri() . '/images/icon_download.png' ?>"> <?php echo wpb_get_post_downloads(get_the_ID());?>
 									</a>

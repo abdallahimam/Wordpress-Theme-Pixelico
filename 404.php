@@ -8,11 +8,11 @@
 					<div id="notfound">
 						<div class="notfound">
 							<div class="notfound-404">
-								<h1>Oops!</h1>
+								<h1><?php echo lang('OOPS'); ?></h1>
 							</div>
-							<h2>404 - Page not found</h2>
-							<p>The page you are looking for might have been removed had its name changed or is temporarily unavailable.</p>
-							<a href="<?php echo get_site_url() ;?>">Go To Homepage</a>
+							<h2><?php echo lang('PAGE_NOT_FOUND_HEAD'); ?></h2>
+							<p><?php echo lang('PAGE_NOT_FOUND_TEXT'); ?></p>
+							<a href="<?php echo get_site_url() ;?>"><?php echo lang('GO_TO_HOME'); ?></a>
 						</div>
 					</div>
 				</div>

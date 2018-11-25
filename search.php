@@ -13,7 +13,7 @@
 
 	<div id="primary" class="home">
 		<div class="container-fluid">
-			<h1 class="text-center pb-2 site-header"><?php echo esc_html_e( 'Search Result For...', 'pixelico' ); ?></h1>
+			<h1 class="text-center pb-2 site-header"><?php echo lang('SEARCH_RESULT'); ?></h1>
 			<p class="text-center text-secondary h5 mb-5 tagline"><?php echo $search_query['s']; ?></p>
 			<div class="row">
 				<?php if ( $search_result->have_posts() ) : while ( $search_result->have_posts() ) : $search_result->the_post(); ?>
@@ -29,19 +29,16 @@
 									<span class="the-date"><?php the_time( 'F jS, Y' ); ?></span>
 								</a>
 								<div class="item-info">
-									<a href="javascript:void(0);" class="btn btn-sm like">
-										<img src="<?php echo get_template_directory_uri() . '/images/icon_like.png' ?>">
-										<b id="id-pex-free-psd-template">35</b>
-									</a>
 									<a href="<?php echo get_post_meta(get_the_ID(), 'download_link', true) ?>" class="btn btn-sm download side-modal">
-										<img src="<?php echo get_template_directory_uri() . '/images/icon_download.png' ?>"> 189
+										<img src="<?php echo get_template_directory_uri() . '/images/icon_download.png' ?>">
+										<?php echo wpb_get_post_downloads(get_the_ID());?>
 									</a>
 								</div>
 							</div>
 						</div>
 					</div>
 				<?php endwhile; wp_reset_postdata(); else : ?>
-					<p><?php esc_html_e( 'Sorry, no posts yet.' ); ?></p>
+					<p><?php echo lang('NO_RESULT_MATCH'); ?></p>
 				<?php endif; ?>
 			</div>
 		</div>
