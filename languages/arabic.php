@@ -78,6 +78,13 @@
             'ADD_COMMENT'                   => 'إضافة تعليق',
             'REPLY_TO'                      => 'رد علي [ %s ]' ,
 
+            //  Sidebar
+            'SIDEBAR_NAME'                  => 'الشريط الجانبي الرئيسي',
+            'SIDEBAR_DESCRIPTION'           => 'أدخل القطع التي تريدها هنا.',
+            'SIDEBAR'                       => 'الشريط الجانبي',
+            'SIDEBAR'                       => 'الشريط الجانبي',
+            'SIDEBAR'                       => 'الشريط الجانبي',
+
 		);
 
 		return $lang[$phrase];

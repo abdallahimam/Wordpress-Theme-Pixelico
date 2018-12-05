@@ -29,9 +29,26 @@ global $optionsfile;
 			<div class="container-fluid">
 				<div class="row justify-content-center">
 					<div class="col-md-4 col-left">
-						<p class="top-head-name"></p>
+						<a class="navbar-brand py-2 m-0" href="<?php echo get_site_url(); ?>"><img src="<?php echo of_get_option('example_uploader'); ?>" alt="<?php echo bloginfo('name') . ' Logo.' ?>" srcset=""></a>
 					</div>
 					<div class="col-md-8 col-sm-12 col-right">
+						<form method="get" id="searchform" action="<?php bloginfo('url'); ?>" class="my-2 search-form">
+							<div class="row no-gutters align-items-center">
+								<div class="col-auto search-icon">
+									<i class="fa fa-search h2 text-secondary"></i>
+								</div>
+								<!--end of col-->
+								<div class="col">
+									<input class="form-control form-control-sm pr-4 rounded-0" type="text" name="s" id="s" placeholder="<?php esc_attr_e( lang('SEARCH_FOR'), 'searchfor' ); ?>">
+								</div>
+								<!--end of col-->
+								<div class="col-auto">
+									<button class="btn btn-sm btn-search submit rounded-0" name="submit" id="searchsubmit" type="submit" value="<?php esc_attr_e( 'Submit', 'searchfor' ); ?>"><?php echo lang('SEARCH') ?> <i class="fa fa-search ml-1"></i></button>									
+								</div>
+								<!--end of col-->
+							</div>
+						</form>
+						<?php /*
 						<ul class="social-top social">
 							<li class="social-btn"><a href="<?php echo of_get_option('pixelico_facebook_link'); ?>" 	class="social-icon facebook" 	target="_self"><i class="fa fa-facebook"></i></a></li>
 							<li class="social-btn"><a href="<?php echo of_get_option('pixelico_google_plus_link'); ?>" 	class="social-icon google" 		target="_self"><i class="fa fa-google-plus"></i></a></li>
@@ -71,6 +88,7 @@ global $optionsfile;
 								</li>
 							</ul>
 						</div>
+						*/ ?>
 					</div>
 				</div>
 			</div>
@@ -80,13 +98,14 @@ global $optionsfile;
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<a class="navbar-brand py-0 m-0 col" href="<?php echo get_site_url(); ?>"><img src="<?php echo of_get_option('example_uploader'); ?>" alt="<?php echo bloginfo('name') . ' Logo.' ?>" srcset=""></a>
 				<div class="navbar-collapse collapse w-100 order-3 dual-collapse2 col" id="navbarTogglerDemo03">
 					<?php include_navbar_template_menu(); ?>
 				</div>
+				<?php /*
 				<div class="nav-item search-in-sm">
 					<a href="#" class="nav-link search" data-toggle="modal" data-target="#modalSubscriptionForm"><i class="fa fa-search"></i></a>
 				</div>
+				*/ ?>
 			</div>
 		</nav>
 	</header><!-- #masthead -->

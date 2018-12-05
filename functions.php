@@ -115,13 +115,13 @@ add_action( 'after_setup_theme', 'pixelico_content_width', 0 );
  */
 function pixelico_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'pixelico' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'pixelico' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
+		'name'          => esc_html__( lang('SIDEBAR_NAME'), 'pixelico' ),
+		'id'            => 'primary-sidebar',
+		'description'   => esc_html__( lang('SIDEBAR_DESCRIPTION'), 'pixelico' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h4 class="widget-title text-right mt-2">',
+		'after_title'   => '</h4>',
 	) );
 }
 add_action( 'widgets_init', 'pixelico_widgets_init' );

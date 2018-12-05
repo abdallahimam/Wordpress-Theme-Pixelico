@@ -199,12 +199,18 @@ get_header();
 						</div>
 					</div>
 					<div class="col-sm-12 col-md-4">
+						<?php if (is_active_sidebar('primary-sidebar')) : ?>
+							<div class="my-sidebar">
+								<div class="widgets">
+									<?php dynamic_sidebar('primary-sidebar'); ?>
+								</div>
+							</div>
 						<?php get_sidebar(); ?>
+						<?php else : get_sidebar(); endif; ?>
 					</div>
 				<?php endwhile; // End of the loop. ?>
 			</div>
 		</div><!-- #main -->
 	</div><!-- #primary -->
 
-<?php
-get_footer();
+<?php get_footer(); ?>

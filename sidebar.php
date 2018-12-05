@@ -91,7 +91,7 @@
 					<?php foreach($recent_posts as $post) { ?>
 						<li class="row popular-post mb-3">
                             <div class="col-6 p-0 text-right">
-                                <a target="_self" href="<?php echo get_permalink($post['ID']) ?>" class="d-block w-100 h-100 py-4 px-2">
+                                <a target="_self" href="<?php echo get_permalink($post['ID']) ?>" class="d-block w-100 h-100 pt-3 px-2">
                                     <h6 class="mb-3"><?php echo $post['post_title']; ?></h6>
                                     <p><?php echo lang('ADDED_ON'); ?> <span><?php echo date('F j, Y', strtotime($post['post_date'])); ?></span></p>
                                 </a>
@@ -114,7 +114,7 @@
                         <?php while ( $popularpost->have_posts() ) : $popularpost->the_post(); ?>
                             <li class="row popular-post mb-3">
                                 <div class="col-6 p-0 text-right">
-                                    <a target="_self" href="<?php  the_permalink() ?>" class="d-block w-100 h-100 py-3 px-2">
+                                    <a target="_self" href="<?php  the_permalink() ?>" class="d-block w-100 h-100 pt-3 px-2">
                                         <h6 class="mb-3"><?php the_title(); ?></h6>
                                         <p><?php echo lang('ADDED_ON'); ?> <span><?php the_time('F j, Y'); ?></span></p>
                                     </a>

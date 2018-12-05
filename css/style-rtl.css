@@ -33,7 +33,7 @@ a {
 }
 
 .navbar-brand img {
-    height: 50px;
+    height: 45px;
     width: auto;
 }
 
@@ -75,6 +75,14 @@ a {
 .btn-down-like .btn-like:hover {
     background-color: #e66666 !important;
     color: #f1f1f1 !important;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: none;
 }
 
 
@@ -119,6 +127,18 @@ a {
     text-align: right;
     min-height: 46px;
     /*height: 46px;*/
+}
+
+.row .col-right .search-form .search-icon {
+    position: relative;
+}
+
+.row .col-right .search-form .search-icon i {
+    position: absolute;
+    font-weight: 700;
+    z-index: 1;
+    top: -5px;
+    right: 8px;
 }
 
 .row .col-right .social {
@@ -503,21 +523,21 @@ a {
     font-weight: bolder;
     position: absolute;
     top: 30%;
-    background-color: #8d72a3;
+    background-color: #bdbdbd;
     border-radius: 0;
     transition: all 0.4s linear;
 }
 
 #pixelico-owl-carousel .owl-nav button:hover {
-    background-color: #7d12d4
+    background-color: #696969
 }
 
 #pixelico-owl-carousel .owl-nav .owl-prev {
-    right: 0;
+    right: -5px;
 }
 
 #pixelico-owl-carousel .owl-nav .owl-next {
-    left: 0;
+    left: -5px;
 }
 
 .post-page .main-post .post-share {
@@ -1575,7 +1595,7 @@ a {
         height: 100%;
     }
     #pixelico-owl-carousel .item {
-        height: 300px;
+        height: 350px;
     }
 }
 
