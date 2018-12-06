@@ -89,7 +89,7 @@
 			<div class="widget-body">
 				<ul class="list-unstyled popular-list">
 					<?php foreach($recent_posts as $post) { ?>
-						<li class="row popular-post mb-3">
+						<li class="row popular-post mb-3 rounded p-0">
                             <div class="col-6 p-0 text-right">
                                 <a target="_self" href="<?php echo get_permalink($post['ID']) ?>" class="d-block w-100 h-100 pt-3 px-2">
                                     <h6 class="mb-3"><?php echo $post['post_title']; ?></h6>
@@ -112,7 +112,7 @@
                 <div class="widget-body">
                     <ul class="list-unstyled popular-list">
                         <?php while ( $popularpost->have_posts() ) : $popularpost->the_post(); ?>
-                            <li class="row popular-post mb-3">
+                            <li class="row popular-post mb-3 rounded p-0">
                                 <div class="col-6 p-0 text-right">
                                     <a target="_self" href="<?php  the_permalink() ?>" class="d-block w-100 h-100 pt-3 px-2">
                                         <h6 class="mb-3"><?php the_title(); ?></h6>

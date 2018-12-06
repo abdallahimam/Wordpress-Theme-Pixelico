@@ -20,7 +20,7 @@ div {
 
 a {
     text-decoration: none !important;
-    color: #6c7e8a !important;
+    color: #ba1187 !important;
 }
 
 .dropdown-item:active {
@@ -840,6 +840,12 @@ a {
     color: #888;
 }
 
+.my-sidebar .widgets .widget_custom_html .widget-body .custom-html-widget {
+    background-color: #FFF;
+    padding: 10px;
+    text-align: right;
+}
+
 .my-sidebar .widgets .widget .widget-body ul {
     list-style-type: none;
     margin: 0;
@@ -848,6 +854,7 @@ a {
 
 .my-sidebar .widgets .widget .widget-body ul li {
     background-color: #ffffff;
+    padding: 10px;
 }
 
 .my-sidebar .widgets .widget .widget-body ul li img {
@@ -859,10 +866,17 @@ a {
 
 .my-sidebar .widgets .widget .widget-body ul li a {
     color: #888;
+    display: block;
+    text-align: right;
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+}
+
+.my-sidebar .widgets .widget .widget-body ul>li>span {
+    display: block;
+    text-align: left;
 }
 
 .my-sidebar .widgets .widget .widget-body .popular-post h6 {

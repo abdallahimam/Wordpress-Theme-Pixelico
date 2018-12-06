@@ -119,9 +119,9 @@ function pixelico_widgets_init() {
 		'id'            => 'primary-sidebar',
 		'description'   => esc_html__( lang('SIDEBAR_DESCRIPTION'), 'pixelico' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</div>',
+		'after_widget'  => '</div></div>',
 		'before_title'  => '<h4 class="widget-title text-right mt-2">',
-		'after_title'   => '</h4>',
+		'after_title'   => '</h4><div class="widget-body">',
 	) );
 }
 add_action( 'widgets_init', 'pixelico_widgets_init' );
@@ -151,7 +151,7 @@ function ps_count_user_comments() {
 function include_navbar_template_menu() {
     wp_nav_menu(array(
 		'theme_location'    => 'navbar-menu',
-		'menu_class'		=> 'navbar-nav mr-auto parent',
+		'menu_class'		=> 'navbar-nav mr-auto ml-auto parent',
         'container'         => false,
         'depth'             => 2,
         'walker'            => new WP_Bootstrap_Navwalker(),
