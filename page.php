@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <?php 
-    $page_slug ='about';
+    $page_slug ='privacy-policy';
     $page_data = get_page_by_path($page_slug);
     $page_id = $page_data->ID;
     

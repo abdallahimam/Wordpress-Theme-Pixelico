@@ -1,10 +1,10 @@
 <?php
 /**
- * pixelico functions and definitions
+ * photoshoplibrary functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package pixelico
+ * @package photoshoplibrary
  */
 
 //////////////////////////////////////
@@ -14,7 +14,7 @@ require_once(get_template_directory() . '/languages/arabic.php');
 require_once('class-wp-bootstrap-navwalker.php');
 
 
-if ( ! function_exists( 'pixelico_setup' ) ) :
+if ( ! function_exists( 'photoshoplibrary_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -22,14 +22,14 @@ if ( ! function_exists( 'pixelico_setup' ) ) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function pixelico_setup() {
+	function photoshoplibrary_setup() {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on pixelico, use a find and replace
 		 * to change 'pixelico' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'pixelico', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'photoshoplibrary', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -51,7 +51,7 @@ if ( ! function_exists( 'pixelico_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'pixelico' ),
+			'menu-1' => esc_html__( 'Primary', 'photoshoplibrary' ),
 			'navbar-menu' => 'Navbar navigation menu',
 			'footer-menu' => 'Footer navigation menu',
 
@@ -91,7 +91,7 @@ if ( ! function_exists( 'pixelico_setup' ) ) :
 		) );
 	}
 endif;
-add_action( 'after_setup_theme', 'pixelico_setup' );
+add_action( 'after_setup_theme', 'photoshoplibrary_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.

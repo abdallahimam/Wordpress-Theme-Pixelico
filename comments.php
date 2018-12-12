@@ -6,9 +6,14 @@ if (comments_open()) {
         'type'          => 'comment',
         'avatar_size'   => 50,
     );
-    echo '<h6 class="comments-number text-right">';
-    comments_number(lang('ZERO_COMMENT'), lang('ONE_COMMENT'), lang('MANY_COMMENTS'));
-    echo '</h6>';
+    echo '<h3 class="comments-number text-right">';
+    echo    '<p>';
+    echo        lang('COMMENTS_TITLE');
+    echo    '</p>';
+    echo    '<p>';
+                comments_number(lang('ZERO_COMMENT'), lang('ONE_COMMENT'), lang('MANY_COMMENTS'));
+    echo    '</p>';
+    echo '</h3>';
     if (count($comments)) {
         echo '
             <div class="card">

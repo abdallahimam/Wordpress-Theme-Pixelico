@@ -111,6 +111,7 @@ global $optionsfile;
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
+		<?php /*
 		<div class="modal fade modal-background" id="modalSubscriptionForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-lg" role="document">
 				<div class="modal-content">
@@ -133,3 +134,4 @@ global $optionsfile;
 				</div>
 			</div>
 		</div>
+		*/ ?>

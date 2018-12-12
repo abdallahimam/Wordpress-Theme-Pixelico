@@ -20,7 +20,15 @@ div {
 
 a {
     text-decoration: none !important;
-    color: #ba1187 !important;
+    color: #5d3751 !important;
+}
+
+.font-size-10 {
+    font-size: 10px;
+}
+
+.font-size-20 {
+    font-size: 20px;
 }
 
 .dropdown-item:active {
@@ -223,8 +231,8 @@ a {
 }
 
 .row .col-right .top-bar ul li:hover a {
-    text-decoration: underline #E46B54 !important;
-    color: #E46B54 !important
+    text-decoration: underline #ba1187 !important;
+    color: #ba1187 !important
 }
 
 .row .col-right .top-bar ul li a span {
@@ -268,8 +276,8 @@ a {
 }
 
 .navbar-header .parent>.nav-item:hover>a {
-    color: #E46B54 !important;
-    border-bottom: 2px solid #E46B54
+    color: #ba1187 !important;
+    border-bottom: 2px solid #ba1187
 }
 
 .navbar-header .dropdown-menu {
@@ -277,13 +285,13 @@ a {
     left: -10px;
 }
 
-.navbar-header .dropdown-menu .dropdown-item a {
+.navbar-header .dropdown-menu .dropdown-item {
     text-align: right !important;
     float: right;
 }
 
-.navbar-header .dropdown-menu .dropdown-item:hover a {
-    color: #E46B54 !important;
+.navbar-header .dropdown-menu .dropdown-item:hover {
+    color: #ba1187 !important;
 }
 
 .navbar-header .parent .nav-item .search {
@@ -351,6 +359,7 @@ a {
 .item-content {
     padding: 20px;
     text-align: left;
+    position: relative;
 }
 
 .item-content h3 {
@@ -358,6 +367,11 @@ a {
     font-weight: 600;
     padding-top: 5px;
     color: #5c6e7a;
+}
+
+.item-content span {
+    position: absolute;
+    bottom: 10px;
 }
 
 .item>.item-info {
@@ -480,6 +494,17 @@ a {
 
 .post-page .main-post .post-content {
     font-size: 17px;
+}
+
+.post-page .main-post .file-info h3 {
+    color: #5e0e37;
+    margin: 0;
+}
+
+.post-page .main-post .file-info table tr th,
+.post-page .main-post .file-info table tr td {
+    padding: 5px;
+    border-bottom: 1px solid #dee2e6;
 }
 
 .post-page .main-post .post-author,
@@ -730,12 +755,28 @@ a {
 }
 
 .comments-number {
-    background-color: #DDD;
+    background-color: rgb(247, 247, 247);
     padding: 10px 20px;
     margin: 5px 0;
-    color: #999;
-    font-size: 18px;
+    color: rgb(77, 51, 70);
+    font-size: 25px;
     border-radius: 5px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.comments-number p:first-child {
+    flex: 2;
+    margin: 0;
+}
+
+.comments-number p:last-child {
+    flex: 1;
+    font-size: 18px;
+    text-align: left;
+    margin: 0;
 }
 
 .comment-respond .comment-reply-title {
@@ -747,14 +788,14 @@ a {
     padding: 20px;
     text-align: center;
     border-radius: 5px;
-    background-color: #CCC;
+    background-color: rgb(247, 247, 247);
 }
 
 .comment-respond .comment-form {
     margin: 10px 0;
     padding: 20px;
     border-radius: 5px;
-    background-color: #CCC
+    background-color: rgb(247, 247, 247);
 }
 
 .comment-respond .comment-form .logged-in-as {

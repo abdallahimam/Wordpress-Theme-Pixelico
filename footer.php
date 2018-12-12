@@ -46,6 +46,12 @@
 										<span><?php echo lang('CONTACT_US') ?></span>
 									</a>
 								</li>
+								<li class="">
+									<a href="<?php echo get_site_url(); ?>/page/privacy-policy" target="_self" style="">
+										<i class="fa fa-envelope p-1"></i>
+										<span><?php echo lang('PRIVACY_POLICY') ?></span>
+									</a>
+								</li>
 							</ul>
 						</div>
 					</div>

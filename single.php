@@ -8,6 +8,22 @@
  */
 
 get_header();
+
+// get information about file.
+/*
+global $post;
+$id =  $post->ID;
+
+$file_info_1 = get_post_meta($id, 'file_info_1', true);
+$file_info_2 = get_post_meta($id, 'file_info_2', true);
+$file_info_3 = get_post_meta($id, 'file_info_3', true);
+$file_info_4 = get_post_meta($id, 'file_info_4', true);
+$file_info_5 = get_post_meta($id, 'file_info_5', true);
+$file_info_6 = get_post_meta($id, 'file_info_6', true);
+$file_info_7 = get_post_meta($id, 'file_info_7', true);
+$file_info_8 = get_post_meta($id, 'file_info_8', true);
+*/
+
 ?>
 
 	<div id="primary" class="content-area post-page">
@@ -28,7 +44,8 @@ get_header();
 								<?php comments_popup_link(lang('ZERO_COMMENT'), lang('ONE_COMMENT'), lang('MANY_COMMENTS'), 'comments-url', lang('DISABLED_COMMENTS')); ?>.
 							</span>
 							<div class="clearfix"></div>
-							<?php /* ?>
+							<?php
+							 /* ?>
 							<div class="post-image">
 								<?php the_post_thumbnail('', ['class' => 'img-responsive img-thumbnail']); ?>
 							</div>
@@ -67,22 +84,56 @@ get_header();
 								<h3 class="text-secondary"><?php echo lang('DESCRIPTION'); ?></h3>
 								<?php the_content(); ?>
 							</div>
-							<div class="btn-down-like mb-4">
-								<div class="row">
-									<div class="col-sm-4 col-md-3 mb-3">
-										<a href="<?php echo get_site_url(); ?>/downloads/?post=<?php echo /*basename(get_permalink());*/ get_the_ID(); ?>" class="btn btn-block btn-success border border-success rounded-0 py-4 btn-download text-right">
-											<i class="fa fa-cloud-download"></i> <?php echo lang('DOWNLOAD'); ?> (<span><?php echo wpb_get_post_downloads(get_the_ID());?></span>)
-										</a>
+							<div class="file-info mb-3"> 
+								<?php
+									$fields = get_field_objects()['file_info_group'];
+									$sub_fields = $fields['sub_fields'];
+									$temp_values = $fields['value'];
+									$labels = array();
+									$values = array();
+									foreach ($sub_fields as $key => $value) {
+										$labels[$value['name']] = $value['label'];
+									}
+									foreach ($temp_values as $key => $value) {
+										$values[$key] = $value;
+									}
+								?>
+								<div class="card">
+									<div class="card-header">
+										<h3 class="text-center"><?php echo lang('FILE_INFORMATION_HEAD'); ?></h3>
 									</div>
-									<?php /*
-									<!--
-									<div class="col-sm-4 col-md-3 mb-3">
-										<a href="javascript:void(0)" id="buttonLike" class="btn btn-block border border-danger rounded-0 py-4 btn-like">
-											<i class="fa fa-heart"></i> <?php echo lang('LIKE'); ?> (<span id="singlePostLikes"><?php echo wpb_get_post_likes(get_the_ID());?></span>)
-										</a>
+									<div class="card-body">
+										<div class="table-responsive">
+											<table class="table table-sm table-light table-hover text-right m-0">
+												<tbody>
+													<?php foreach ($values as $key => $value) : ?>
+														<?php if (isset($value) && !empty(trim($value))) : ?>
+															<tr>
+																<th class="font-size-20"><?php echo $labels[$key]; ?></th>
+																<td><?php echo $value; ?></td>
+															</tr>
+														<?php endif ?>
+													<?php endforeach ?>
+												</tbody>
+											</table>
+										</div>
 									</div>
-									-->
-									*/ ?>
+									<div class="card-footer">
+										<div class="btn-down-like">
+											<a href="<?php echo get_site_url(); ?>/downloads/?post=<?php echo /*basename(get_permalink());*/ get_the_ID(); ?>" class="btn btn-block btn-success border border-success rounded py-2 btn-download text-center">
+												<i class="fa fa-cloud-download"></i> <?php echo lang('DOWNLOAD'); ?> (<span><?php echo wpb_get_post_downloads(get_the_ID());?></span>)
+											</a>
+											<?php /*
+											<!--
+											<div class="col-sm-4 col-md-3 mb-3">
+												<a href="javascript:void(0)" id="buttonLike" class="btn btn-block border border-danger rounded-0 py-4 btn-like">
+													<i class="fa fa-heart"></i> <?php echo lang('LIKE'); ?> (<span id="singlePostLikes"><?php echo wpb_get_post_likes(get_the_ID());?></span>)
+												</a>
+											</div>
+											-->
+											*/ ?>
+										</div>
+									</div>
 								</div>
 							</div>
 							<p class="text-right post-categories"><i class="fa fa-tags fa-fw fa-lg"></i><?php the_category(', '); ?></p>
@@ -105,7 +156,7 @@ get_header();
 								);
 								$author_posts = new WP_Query($author_random_posts_args);
 								if ($author_posts->have_posts()) { ?>
-								<h4 class="text-right random-posts-header"><?php echo lang('SEE_ALSO') ?></h4>
+								<h4 class="text-center random-posts-header"><?php echo lang('SEE_ALSO') ?></h4>
 								<hr>
 								<div class="row">
 									<?php
@@ -140,6 +191,7 @@ get_header();
 							?>
 						</div>
 						<div class="clearfixr"></div>
+						<?php /*
 						<div class="about-author text-right">
 							<div class="row">
 								<div class="col-md-2">
@@ -192,6 +244,7 @@ get_header();
 								</div>
 							</div>
 						</div>
+						<?php */ ?>
 						<div class="clearfix"></div>
 						<hr class="comment-separator" />
 						<div class="w-100" id="comments">
